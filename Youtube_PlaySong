@@ -1,0 +1,15 @@
+#just type in the name of the song which you want to play and chill
+from selenium import webdriver
+import time
+from selenium.webdriver.common.keys import Keys
+songName=input("Which Song on your mind ?  ")
+driver = webdriver.Edge()
+driver.maximize_window()
+driver.get("https://www.youtube.com/")
+time.sleep(2)
+driver.find_element("xpath","//input[@name='search_query']").send_keys(songName)
+driver.find_element("xpath","//input[@name='search_query']").send_keys(Keys.ENTER)
+time.sleep(2)
+driver.find_element("xpath","//a[@id='video-title']").send_keys(Keys.ENTER)
+duration=driver.find_element("xpath","//span[@class='ytp-time-duration']")
+time.sleep(1000)
