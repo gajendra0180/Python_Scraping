@@ -1,0 +1,19 @@
+#Opens linkedin and searches for gajendra Pal
+from selenium import webdriver
+import time
+from selenium.webdriver.common.keys import Keys
+email=input("Your Linkedin Email: ")
+password=input("Your Linkedin Password: ")
+driver = webdriver.Edge()
+driver.maximize_window()
+driver.get("https://www.linkedin.com/login/")
+time.sleep(2)
+driver.find_element("name", "session_key").send_keys(email)
+driver.find_element("name", "session_password").send_keys(password)
+driver.find_element("xpath","//button[@aria-label='Sign in']").send_keys(Keys.ENTER)
+driver.find_element("xpath","//input[@aria-label='Search']").send_keys('gajendra pal emoha')
+time.sleep(2)
+driver.find_element("xpath","//input[@aria-label='Search']").send_keys(Keys.ENTER)
+time.sleep(2)
+driver.find_element("xpath","//a[@href='https://www.linkedin.com/in/gajendra0180?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAADOTk1UBgOblB6X-8CX9AiuqTvloGGDE-2c'] ").send_keys(Keys.ENTER)
+time.sleep(10)
